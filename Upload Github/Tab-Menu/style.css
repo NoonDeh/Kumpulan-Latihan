@@ -1,0 +1,874 @@
+/*catatan penting
+ukuran font/teks = rem (ukuran normal 16px, ia akan berubah tergantung pengaturan browser yang digunakan pengguna)
+ukuran padding/margin tombol = em (sama seperti rem, tapi mengikuti besar sebelumnya/inheritens)
+ketebalan border = px
+maksimal karakter untuk setiap baris kata = ch
+tipografi yang responsif/banner gambar = vw (1vw --> 1% dari layar pengguna baik hp, laptop, tablet)
+layout/kolom = "%" atau "flexbox" atau "grid"
+
+semakin spesifik sumbernya (elemen / class / id), maka semakin besar levelnya, dan akan menimpa level yang dibawahnya
+*/
+
+/* pseudocode 
+is('elemen'); digunakan untuk menulis kode secara effisien (tanpa pengulangan), jika berasal dari sumber (elemen) yang sama
+where('elemen'); (sama seperti 'is')digunakan untuk membuat elemen tanpa level, sehingga bisa ditimpa, tanpa perlu sumber spesifik (level yang lebih tinggi) */
+
+/* nth-child
+odd  = digunakan untuk nomor order ganjil 
+even = digunakan untuk nomor order genap */
+
+/*<------------------------------------------------------------>*/
+/*PENERAPAN DASAR *(SEMUA) | HTML | BODY | MAIN | H1-H6 | P | A | OL | UL */
+/*<------------------------------------------------------------>*/
+
+/*<------------------------------------------------------------>*/
+/*CSS ProjekWebFirst*/
+/*<------------------------------------------------------------>*/
+
+/*tambahkan (*)bintang untuk menerapkan sekali setiap kode yang ada (perulangan pada setiap kode, universal/seluruh halaman & kode) */
+* {
+
+    /*menentukan/memilih font*/
+    /*"font-family: (priorias 1/utama), (prioritas 2/cadangan), ... , (prioritas terakhir - kategori generik) "*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /*warna background*/
+    /* background: rgb(249, 249, 249); */
+}
+
+/*Memberikan style khusus pada 'html', 'body', 'main'*/
+/* html,
+body,
+main {
+
+    /*"font-size: ;" memberikan ukuran font*/
+    /*"rem" = 16 pixel, pada ukuran normal. akan menggikuti sesuai setting yang digunakan pada browser*/
+    /* font-size: min(1rem); */  /* } */
+
+body {
+
+    background-size: 75%, auto;
+
+}
+
+/*Memberikan style khusus pada 'h1' (Headline 1)*/
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+/*Memberikan style khusus pada 'h2' (Headline 2)*/
+h2 {
+    font-size: 1rem;
+}
+
+p {
+
+    /*jarak tinggi/atas bawah antar baris teks*/
+    line-height: 1.5;
+}
+
+a {
+    /*"text-decoration" berfungsi untuk menambah/menghilangkan dekorasi pada teks*/
+    text-decoration: none;
+
+    /*"cursor: ;" menentukan/mengubah bentuk kursor, jika berada disekutar area yang ditentukan*/
+    cursor: pointer;
+
+    color: black;
+}
+
+
+ol {
+    /*mengubah style list pada "ol"/list urutan (order) yang digunakan*/
+    list-style-type: upper-latin;
+}
+
+ul.awal {
+    /*"list-style-type:(perintah);" digunakan untukmengubah style list pada "ul"/list biasa (nonorder) yang digunakan*/
+    list-style-type: none;
+
+    /*"text-align: (perintah);" digunakan untuk menempatkan peletakan teks pada kiri*/
+    text-align: center;
+
+    /*Mengatur jarak antar elemen agar tidak saling menempel*/
+    /*"margin: atas kanan bawah kiri"*/
+    /*"margin: (angka)(satuan) auto" digunakan untuk meletakkan dibagian yang kosong (mengambil tempat yang kosong secara rata/seimbang atas bawah, kanan kiri)*/
+    margin: 0;
+
+    /*padding digunakan untuk memberi jarak ruang pada dalam border (Memberikan napas/ruang agar konten tidak menempel ke dinding elemen.)*/
+    padding: 0;
+
+    /*TIPS : "margin: " & "padding: " fungsi khusus untuk tipe list(non paragraf/headline), mading dan padding berniali 0, akan menghapus jarak/pembatas list dibagian kiri*/
+
+    /*"list-style-position:(perintah);" digunakan untuk menempatkan peletakan dot/titik mengikuti perintah*/
+    list-style-position: inside;
+
+    /*"line-height: (jarak);" digunakan untukmenentukan jarak tiap baris*/
+    line-height: 2em;
+
+    /*"list-style-image: (sumber);" digunakan untuk mengubah dot/titik menjadi gambar/ikon lain*/
+    list-style-image: url(/logo/deployed_code_logo.png);
+}
+
+footer {
+    text-align: center;
+}
+
+/*"hover" digunakan untuk mengubah/menjalankan perintah didalamnya, saat kursor berada tepat mengenai tujuan/target/teks yang diberikan fitur ini*/
+a:hover {
+    color: rgb(53, 240, 159);
+}
+
+/*"active" digunakan untuk mengubah/menjalankan perintah didalamnya, saat kursor mengklik tujuan/target/teks yang diberikan fitur ini*/
+a:active {
+    color: rgb(242, 150, 69);
+}
+
+
+/*<------------------------------------------------------------>*/
+/*PENERAPAN SECARA SPESIFIK (NAMA) = NAMA ELEMEN | .(NAMA) = NAMA CLASS | #(NAMA) = ID*/
+/*<------------------------------------------------------------>*/
+
+/*<------------------------------------------------------------>*/
+/**/
+
+
+
+body.TemaUtama {
+    /* 'linear-gradient' digunakan untuk menggabungkan dua/lebih warna dalam satu tempat, dan digradasi/transisi dari atas ke bawah (kanan ke kiri)*/
+    /* background-image: url("../images/abstract-geometric-element.webp"), linear-gradient(to left, #14213d, #8d99ae); */
+
+    /* "background-repeat:;" digunakan untuk mengatur bagaimana sebuah gambar latar belakang (background image) diulang di dalam suatu elemen.*/
+    /* repeat-y: Gambar hanya diulang secara vertikal (menurun dari atas ke bawah). */
+    /* background-repeat: repeat-y; */
+
+    /* "background-position" digunakan untuk mengubah posisi/peletakan background*/
+    /* background-position: right center; */
+
+    /*Secara singkat (tanpa memanggil banyak perintah. Dibawah ini)*/
+
+    background: repeat-y right center url(../images/abstract-geometric-element.webp), no-repeat linear-gradient(to left, #14213d, #8d99ae);
+}
+
+/*Memberikan style khusus pada 'h1' (Headline 1) class "Tab"*/
+h1.Tab {
+
+    /*"text-align:" digunakan untuk menentukan tempat/posisi teks*/
+    text-align: center;
+
+    /*"font-size: ;" memberikan ukuran font*/
+    /*"rem" = 16 pixel, pada ukuran normal. akan mengikuti sesuai setting yang digunakan pada browser*/
+    font-size: 4rem;
+    color: rgba(106, 106, 230, 0.938);
+    /*"!important" berfungsi untuk mengunci fitur, agar inheriten(keturunan) mati*/
+    border-radius: 0.4em !important;
+}
+
+/*Memberikan style khusus pada 'h2' (Headline 2) class "Tab"*/
+.Tab {
+
+    /*"font-size: 2rem" berfungsi untuk menentukan ukuran font. "2rem" berfungsi untuk menyesuaikan ukuran font terhadap setting browser(font size browser), memiliki ukuran normal yaitu 16px*/
+    font-size: 2rem;
+    /*"color: ;" menentukan warna pada teks*/
+    color: rgba(42, 202, 202, 0.984);
+
+}
+
+/*Memberikan style pada keduanya (h1 dan h2)*/
+/*Tambahkan (,) koma untuk menambahkan tag/id/class*/
+h1.Tab,
+.Tab {
+
+    /*"box-sizing" digunakan untuk menentukan ukuran box berdasarkan ukuran "border-box"*/
+    box-sizing: border-box;
+
+    /*Mengatur jarak antar elemen agar tidak saling menempel*/
+    /*"margin: atas kanan bawah kiri"*/
+    /*"margin: (angka)(satuan) auto" digunakan untuk meletakkan dibagian yang kosong (mengambil tempat yang kosong secara rata/seimbang atas bawah, kanan kiri)*/
+    margin: 0.2em 0em 0.2em 0em;
+
+    /*"text-transform: " untuk menetapkan huruf menjadi UPPER/lower*/
+    text-transform: uppercase;
+
+    /*"background-color: " untuk menambahkan warna pada belakang text*/
+    background-color: rgb(97, 97, 255);
+
+    /*border: (besar) (tipe) (warna)" digunakan untuk membuat pembatas/pinggiran dari teks*/
+    border: 4px solid rgb(75, 75, 75);
+
+    /*ukuran outline(garis terluar)*/
+    outline: 4px solid rgb(0, 255, 94);
+
+    /*Jarak antara semua sisi outline dengan objeknya (bisa diluar [+], bisa didalam [-])*/
+    outline-offset: 2px;
+
+    /*padding digunakan untuk memberi jarak ruang pada dalam border (Memberikan napas/ruang agar konten tidak menempel ke dinding elemen.)*/
+    padding: 0.25em;
+
+    /*"border-radius: kiri atas, kanan atas, kanan bawah, kiri bawah" digunakan untuk mengukur setiap (bentuk) pinggiran border*/
+    border-radius: 0em 1em 1em 0em;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+#BackJudul {
+    background-color: rgb(97, 97, 255);
+    border-radius: 2em;
+}
+
+#Judul {
+    font-size: 3rem;
+
+    background-image: url("../images/Background-Kota.jpg");
+
+    color: rgba(42, 202, 202, 0.5);
+
+    background-position: center bottom;
+
+    background-size: 100%;
+
+    text-transform: uppercase;
+
+    /*'cover' digunakan agar gambar dapat berubah bentuk mengikuti device/mengisi ruang agar tidak kosong (zoom)*/
+    background-size: cover;
+
+
+    /*"background-clip" mengatur agar gambar diletakkan pada sebuah wadah, dan menyesuaikannya*/
+
+    /*"-webkit-background-clip" digunakan agar web/browser yang masih menggunakan versi lama, dapat menjalankan perintah tanpa error.*/
+    /* namun karena dibagian <meta> sudah ditambahkan <meta http-equiv="X-UA-Compatible" content="IE=edge">. yang memaksa memakai browser versi terbaru. Sehingga fitur ini sudah tidak digunakan*/
+
+    /*"border-box" (Default) Latar belakang meluas sampai ke tepi luar border. Jika border Anda transparan atau berupa titik-titik (dotted), background akan terlihat di bawahnya.
+    "padding-box" Latar belakang hanya meluas sampai tepi luar padding. Background tidak akan muncul di bawah area border.
+    "content-box" Latar belakang hanya muncul di dalam area konten saja. Area padding dan border akan tetap bersih/transparan.
+    "text" Latar belakang hanya akan muncul di dalam bentuk teks itu sendiri (teks berfungsi sebagai topeng/masker). Agar efek ini terlihat, warna teks biasanya harus dibuat transparan (color: transparent;).*/
+    background-clip: text;
+
+    /*Catatan : Jika ingin menambahkan background di teks yang diberi 'background clip'. harus menambahkan section/pembungkus agar bisa berbeda layer*/
+}
+
+
+
+.Kotak {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* catatan: penggunaan margin dan padding, jika menggunakan margin, berarti area sisa/jarak, menjadi milik pengguna margin, jika menggunakan padding maka, akan memberikan jarak pada setiap elemen didalamnya, sehingga area sisa dimiliki oleh pengguna padding */
+
+.KumpulanKotak {
+
+    /* "max-width: ;" maksimal lebar elemen */
+    max-width: 800px;
+
+    /* "min-height: ;" minimal panjang elemen */
+    min-height: 400px;
+    margin-inline: auto;
+    border: 1px solid black;
+
+    /* mengatur jarak atau celah antar elemen (anak) di dalam tata letak (layout) Flexbox */
+    /*     gap: 1rem; */
+
+    /* Mengubah elemen menjadi sebuah Flex Container (wadah utama) dan elemen-elemen di dalamnya otomatis menjadi Flex Items (anak-anaknya). */
+    display: flex;
+
+    /*justify-content:; mengatur perataan dan distribusi pada ruang yang kosong diantara elemen*/
+    justify-content: space-evenly;
+
+    /* "align-items:" Mengatur keselarasan/posisi elemen-elemen  
+    stretch (Default): Elemen akan ditarik meninggi penuh mengikuti tinggi container-nya.
+
+    - flex-start: Elemen rata atas.
+    - flex-end: Elemen rata bawah.
+    - center: (Paling sering dipakai) Elemen pas di tengah-tengah secara vertikal.
+*/
+    align-items: center;
+
+    /*  "flex-direction: "Mengatur apakah elemen di dalamnya mau berbaris secara horizontal (menyamping) atau vertikal (menurun).
+
+    - row (Default): Elemen berbaris dari kiri ke kanan.
+    - row-reverse: Elemen berbaris dari kanan ke kiri.
+    - column: Elemen berbaris dari atas ke bawah.
+    - column-reverse: Elemen berbaris dari bawah ke atas. */
+    flex-direction: row;
+
+    /*  "flex-wrap:"Menentukan apakah elemen boleh membungkus/pindah ke baris baru jika ruangannya sudah tidak cukup.
+    - nowrap (Default): Maksa semua elemen tetap di satu baris (bisa bikin jebol/overflow kalau kepanjangan).
+    - wrap: Kalau sudah mentok pinggir, elemen selanjutnya otomatis turun ke baris bawahnya.
+    - wrap-reverse: Sama seperti wrap, tapi baris barunya muncul di atasnya. */
+    flex-wrap: wrap;
+
+    /* "flex-flow:row wrap;" gabungan dari flex direction dan wrap */
+
+    /*Syarat Wajib: "align-content" hanya akan berfungsi jika kontainer induk memiliki properti "flex-wrap: wrap;" (atau wrap-reverse) dan jumlah elemen anaknya cukup banyak hingga membentuk lebih dari satu baris*/
+    /*"align-content:" memberikan jarak pada elemen didalamnya dengan seimbang/sesuai perintah*/
+    align-content: space-around;
+}
+
+.KotakWeb {
+    min-width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem;
+
+    /*Mengatur teks agar letaknya berada ditengah*/
+    /*"display: flex;" digunakan untuk mengubah elemen menjadi induk "wadah" dan elemen didalamnya menjadi anak*/
+    display: flex;
+
+    /*mengatur perataan/distribusi ruang kosong*/
+    justify-content: center;
+
+    /*digunakan untuk mengubah posisi item/anak anak didalam induk menjadi ditengah*/
+    align-items: center;
+
+}
+
+.KotakKedua {
+    padding-bottom: 1em;
+
+    min-height: 100vh;
+
+    /* "display: grid;" mengatur baris (rows) dan kolom (columns) secara bersamaan. */
+    display: grid;
+
+    /*"grid-template-colums" digunakan untuk menentukan jumlah/ukuran kolom, dan membuat layout menjadi responsif*/
+    /*'repeat' digunakan untuk mengulangi pola (jumlah baris yang diulang, ukuran)*/
+    grid-template-columns: repeat(9, 1fr);
+
+    /*"grid-auto-rows:" digunakan untuk menentukan ukuran panjang dan lebar*/
+    /*mengatur ukuran tinggi baris secara otomatis pada baris*/
+    /*jaring pengaman untuk menentukan berapa tinggi baris-baris baru yang tercipta otomatis tersebut.*/
+    grid-auto-rows: 75px auto 75px;
+
+    /*digunakan untuk membentuk visualisasi/tata letak berdasarkan pemberian di "grid-area" nama pada class/elemen*/
+    grid-template-areas:
+        "hd hd hd hd hd hd hd hd hd"
+        "mn mn mn mn mn mn mn sb sb"
+        "ft ft ft ft ft ft ft ft ft"
+    ;
+    /*"gap" memberikan jarak antar elemen*/
+    column-gap: 0.5rem;
+}
+
+.el {
+    background-color: aqua;
+    color: #ffffff;
+    display: grid;
+    place-content: center;
+}
+
+header.atasan {
+    /*pemberian "nama" untuk membuat tata letak di "grid-template-areas"*/
+    grid-area: hd;
+    background-color: aqua;
+}
+
+aside.sidebar {
+    /*pemberian "nama" untuk membuat tata letak di "grid-template-areas"*/
+    grid-area: sb;
+    font-size: 1rem;
+    background-color: aqua;
+}
+
+footer.bawahan {
+    /*pemberian "nama" untuk membuat tata letak di "grid-template-areas"*/
+    grid-area: ft;
+}
+
+.KotakLayout {
+    background-color: #333;
+    color: #ffffff;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+.KumpulanKotakLayout {
+    grid-area: mn;
+
+    min-height: 400px;
+
+    /* "display: grid;" mengatur baris (rows) dan kolom (columns) secara bersamaan. */
+    display: grid;
+
+    /*"fr" Satuan ini digunakan khusus di dalam CSS Grid Layout untuk membagi ruang yang tersedia dalam kontainer secara fleksibel atau proporsional*/
+    /*'repeat' digunakan untuk mengulangi pola (jumlah baris yang diulang, ukuran)*/
+    /*"grid-template-colums" digunakan untuk menentukan jumlah/ukuran kolom, dan membuat layout menjadi responsif*/
+    /*mengatur arah Horizontal (lebar dan jumlah kolom dari kiri ke kanan).*/
+    grid-template-columns: repeat(2, 1fr 2fr);
+
+    /*Vertikal (tinggi dan jumlah baris dari atas ke bawah).*/
+    grid-template-rows: minmax(150px, auto);
+
+    gap: 1em 0.5em;
+}
+
+/*"nth-child(nomor)" digunakan untuk memilih nomor urut, yang bisa diubah suka suka*/
+.KotakLayout:nth-child(1) {
+    background-color: #6161ff;
+
+    /*GRID*/
+    /*"grid" "start" dan "end" dapat digabungakan menjadi satu, tanpa menulis satu persatu*/
+    /*grid-column: 2 / 4;*/
+    /*grid-row: 1/2;*/
+
+    /*"grid-column-start:" digunakan untuk menentukan lokasi awal/tempat awal berdasarkan ukuran/jumlah grid secara urut*/
+    /*grid-column digunakan untuk urutan dan mengubah/menentukan panjang beserta urutan. kanan kiri horizontal*/
+    grid-column-start: 2;
+
+    /*"grid-column-end:" digunakan untuk menentukan urutan akhir dari grid, yang mengambil ukuran/tempat grid lain, sehingga grid selanjutnya akan mengikuti pola ukuran terakhir*/
+    /*grid-column digunakan untuk mengubah/menentukan panjang beserta urutan. kanan kiri horizontal*/
+    grid-column-end: 4;
+
+    /*grid-row digunakan untuk mengubah/menentukan panjang beserta urutan. bawah atas vertikal*/
+    grid-row-start: 1;
+
+    /*grid-row digunakan untuk mengubah/menentukan panjang beserta urutan. bawah atas vertikal*/
+    grid-row-end: 2;
+
+    display: grid;
+
+    place-content: center;
+
+}
+
+.KotakLayout:nth-child(2) {
+    background-color: #6161ff;
+    grid-column: 1/5;
+    grid-row: 2/4;
+}
+
+.Coffee {
+    margin-top: 1rem;
+    border: 1px solid #6161ff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.GambarCoffee {
+    height: 200px;
+    width: auto;
+}
+
+.profil-pic {
+    width: 35%;
+}
+
+.profil-pic img {
+    width: 100%;
+    height: auto;
+    min-width: 100px;
+    border: 5px double gray;
+    border-radius: 50%;
+}
+
+.KotakFoto {
+
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Warna penggelap */
+    /* background-color: rgb(185, 203, 217); */
+    background-image: url('../images/Smash-Earth.jpg');
+
+    /* "background-repeat:;" digunakan untuk mengatur bagaimana sebuah gambar latar belakang (background image) diulang di dalam suatu elemen.*/
+    /*  repeat (Default): Gambar diulang secara horizontal dan vertikal.
+    no-repeat: Gambar hanya ditampilkan satu kali dan tidak diulang sama sekali.
+    repeat-x: Gambar hanya diulang secara horizontal (menyamping dari kiri ke kanan).
+    repeat-y: Gambar hanya diulang secara vertikal (menurun dari atas ke bawah).
+    space: Gambar diulang sebanyak mungkin tanpa terpotong. Jika ada sisa ruang, ruang kosong tersebut akan didistribusikan secara merata di antara gambar-gambar yang diulang.
+    round: Gambar diulang dan ukurannya akan disesuaikan (diregangkan atau diciutkan) agar pas memenuhi ruang yang ada tanpa terpotong. */
+    background-repeat: no-repeat;
+
+
+    /*     background-blend-mode: multiply;       /* Mencampur gambar dengan warna*/
+
+    /*"background-position:" digunakan untuk mengatur posisi gambar yang akan diisi oleh wadah*/
+    background-position: center;
+
+    /*"background-size:" Mengatur ukuran foto yang ada di background, agar dimuat sesuai besar yang diberikan*/
+    /*'cover' digunakan untuk mengatur gambar agar menyesuaikan ukuran tempat/wadah (zoom)*/
+    /*'contain' digunakan untuk mengatur gambar agar hanya memiliki satu gambar/mengunci bentuk. jika wadahnya lebih besar dari pada gambar, maka akan ada area kosong yang tidak diisioleh gambar*/
+
+    background-size: cover;
+}
+
+.hero {
+    border-bottom: 2px solid black;
+    padding: 20px;
+    display: flex;
+    /* flex-start: Elemen rata atas. */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    /*Untuk menimpa/menyatukan warna, gunakan 'hsla' dan tambahkan transparansi di bagian keempat ("warna","warna","warna", "isi transparansi")*/
+    background-color: hsla(240, 57%, 10%, 0.3);
+}
+
+.TeksFoto {
+    font-size: 100%;
+    color: #0B0B28;
+
+    /*"text-shadow" digunakan untuk membuat bayangan diarea setiap huruf*/
+    text-shadow: 2px 2px 5px #96C9FF;
+
+    background-color: hsla(211, 100%, 79%, 0.4);
+    padding: 0.25rem;
+    border-radius: 10px;
+}
+
+.offscreen {
+    position: absolute;
+    left: -19000000px;
+}
+
+
+/*Memberikan style khusus untuk Class bernama "lists"*/
+/*tambahkan "." (titik) untuk menambahkan style pada Class*/
+.lists {
+
+    /*"!important" digunakan untuk mengutamakan kodenya terlebih dahulu/fokus menjalankan ini (Overwrite), walaupun di bawahnya ada kode penimpa*/
+    color: rgb(250, 97, 97) !important;
+}
+
+/*tambahkan "#" (hastag) untuk menambahkan style pada ID*/
+#Ek {
+
+    /*"color: ;" digunakan untuk menentukan warna pada teks*/
+    color: rgb(221, 211, 211);
+}
+
+/*Memberikan style khusus untuk Class bernama "Masukan"*/
+/*tambahkan "." (titik) untuk menambahkan style pada Class*/
+.Masukan {
+
+
+    /*"Border" digunakan untuk memberi garis tepi diluar kode/menjadi pembatas*/
+    border: 8px solid cornflowerblue;
+
+    /*"font-family" digunakan untuk mengubah bentuk font yang digunakan*/
+    font-family: monospace;
+
+    /*"1rem" untuk ukuran default (16px), mengikuti ukuran teks kenyamanan mata pengguna (sesuai seting browser yang digunakan di font size)*/
+    /*ukuran rem default = 16 px, rem bisa diubah dengan menambahkan "font-size: ;" dibagian css'html {}' */
+    /*tips, untuk menghitung agar ukurannya menjadi kelipatan 10px. tambahkan di css 'html {}' tambah "font-size: 62.5%;". agar 16px, menjadi 10px*/
+    font-size: 1rem;
+    /*"1em" mirip seperti rem(berjenis root juga[berubah berdasarkan setting browser]), ini merupakan kelipatan keturunan(inheritens)*/
+    /*contoh "1em",
+    main {
+        font-size: 2em;
+        *note : 1em = 16px/sesuai root bagian 'html {}'
+    }
+    
+    h1 {
+        font-size: 5em;
+        *note : 5em = 5 kali dari ukuran keturunan sebelumnya/bagian terluar/bagian yang lebih besar.
+        *jika sebelumnya sudah berukuran 2em (2*16). maka ukuran 5em bagian ini (karena berada didalam keturunan), maka 10em (10*16 atau 32*5) 
+    }
+
+    */
+
+
+}
+
+.pembatas {
+    /*tinggi benda*/
+    height: 128px;
+
+    /*lebar benda*/
+    width: 128px;
+
+    /*background benda*/
+    background-color: aqua;
+
+    /*bentuk kelengkungan/sisi ujung benda*/
+    border-radius: 64px;
+
+    /*batasan terluar/border untuk elemen*/
+    border: 4px dotted rgb(66, 66, 66);
+
+    /*gaya/garis/bentuk untuk memberikan efek disekitar benda*/
+    outline: 8px dashed rgb(66, 66, 66);
+
+    /*titik koordinat peletakan outline*/
+    outline-offset: -16px;
+
+    /*memberi jarak/pembatas antar elemen */
+    margin: 4rem auto 4rem auto;
+}
+
+/*import berdasarkan peraturan dari 'fonts.google.com', untuk menerapkan fontnya*/
+.google-sans-p {
+    /*font-family: "(utama)", "(cadangan)";" digunakan untuk mengubah bentuk font pada teks*/
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "GRAD" 0;
+}
+
+.perkenalan {
+
+    background-color: #96C9FF;
+    /*ketebalan font*/
+    font-weight: 550;
+    font-size: 2rem;
+}
+
+a.MenuList {
+    /*"background-color: " untuk menambahkan warna pada belakang text*/
+    background-color: rgb(97, 97, 255);
+    color: rgba(42, 202, 202, 0.984);
+}
+
+/*":nth-child()" digunakan untuk menentukan apa yang terjadi pada "ul", "even" digunakan untuk genap, 'odd' digunakan untuk angka ganjil*/
+ul li:nth-child(even) {
+    color: rgb(103, 103, 255);
+}
+
+/*"::marker" digunakan untuk mengubah/menentukan warna dot pada list "ul"*/
+ul ::marker {
+    color: purple;
+
+    /*TIPS : "Content: " digunakan untuk mengganti dot/titik, menjadi teks*/
+}
+
+/*memanggil "li" list spesifik bagian "a"*/
+li a.tautan {
+    /*membuat "li" mengambil alih seluruh ruang samping(kanan dan kiri)/seluruhnya yang tersisa untuk dijadikan sebagai bagiannya*/
+    display: block;
+}
+
+/*
+hover = setiap kursor berada di area yang ditentukan, kode tersebut akan jalan
+focus = sedang aktif/dipilih pengguna, akan menjalankan kode didalamnya
+*/
+li a:hover,
+li a:focus {
+    border-radius: 1em;
+    background-color: rgba(42, 202, 202, 0.984);
+    cursor: pointer;
+    color: rgb(97, 97, 255);
+}
+
+span.tebal {
+
+    font-weight: 900;
+}
+
+span.tebal.par1 {
+    background-color: #96C9FF;
+}
+
+p#bawah {
+    background-color: rgba(42, 202, 202, 0.984);
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 1em;
+    color: rgb(97, 97, 255);
+}
+
+span.akhir {
+
+    /*"display: inline-block" membuat elemen tetap berada di baris yang sama dengan elemen lainnya (memiliki tinggi yang setara/sama. tidak keluar batas, yang membuatnya harus menambah luas)*/
+    display: inline-block;
+    background: linear-gradient(#6161ff, #96C9FF);
+    color: rgba(42, 202, 202, 0.984);
+    padding: 2em;
+    height: 200px;
+}
+
+span.lain {
+    background: linear-gradient(#3f3f3f, #b3b3b3);
+    color: rgb(97, 97, 255);
+}
+
+@media screen and (max-width: 481px) {
+    #BackJudul {
+        border-radius: 1em;
+    }
+
+    #Judul {
+        font-size: 2rem;
+    }
+
+    .BawahFoto {
+        font-size: 2rem;
+        /*menyatukan teks, agar tidak terpisah walaupun ada spasi*/
+        white-space: nowrap;
+    }
+
+    .PTentang {
+        width: 30ch;
+    }
+}
+
+@media screen and (min-width: 482px) and (max-width: 768px) {
+
+    #BackJudul {
+        border-radius: 2em;
+    }
+
+    #Judul {
+        font-size: 4rem;
+    }
+
+    .BawahFoto {
+        font-size: 3rem;
+    }
+
+    .PTentang {
+        width: 40ch;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #BackJudul {
+        border-radius: 3em;
+    }
+
+    #Judul {
+        font-size: 6rem;
+    }
+
+    .BawahFoto {
+        font-size: 6rem;
+    }
+
+    .PTentang {
+        width: 60ch;
+    }
+}
+
+
+/*<------------------------------------------------------------>*/
+/*Tab Menu*/
+/*<------------------------------------------------------------>*/
+
+body.BTM {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    padding: 0;
+}
+
+.LiTB {
+    text-decoration: none;
+}
+
+.HTB {
+    background-color: #6161ff;
+    color: #8ffbff;
+}
+.judul-header {
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* 
+.menu-icon, .menu-icon::before, .menu-icon::after {
+    background-color: #8ffbff;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    transition: all 0.5s;
+} */
+/* 
+.menu-icon::before, .menu-icon::after {
+    content: "";
+}
+
+.menu-icon::before {
+    transform: translate(-20px,-12px);
+}
+
+.menu-icon::after {
+    transform: translate(-20px,12px);
+} */
+/* 
+:is(header.HTB:hover, header.HTB:focus-within) .menu-icon {
+   background-color: transparent; 
+   transform: rotate(720deg);
+}
+
+:is(header.HTB:hover, header.HTB:focus-within) .menu-icon::before {
+   transform: translateX(-20px) rotate(45deg);
+}
+
+:is(header.HTB:hover, header.HTB:focus-within) .menu-icon::after {
+   transform: translateX(-20px) rotate(-45deg);
+} */
+
+:is(header.HTB:hover, header.HTB:focus-within) .NTB {
+   display: block;
+}
+
+.NTB {
+    display: none;
+    transform-origin: top center ;
+    animation: showMenu 0.5s ease-in-out forwards;
+    background-color: #6161ff;
+    overflow: hidden;
+}
+
+@keyframes showMenu {
+    0% {
+        transform: scaleY(0);
+    }
+    80% {
+        transform: scaleY(1.2);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.NTB ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0;
+}
+
+.NTB li {
+    padding: 0.5rem;
+    border-top: 1px solid #8ffbff;
+}
+
+.NTB a {
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-weight: bold;
+}
+
+.NTB a:any-link {
+    text-decoration: none;
+}
+
+.NTB a:hover, .NTB a:focus {
+    transform: scale(1.2);
+    transition: all 0.3s;
+    border: 2px black solid;
+}
